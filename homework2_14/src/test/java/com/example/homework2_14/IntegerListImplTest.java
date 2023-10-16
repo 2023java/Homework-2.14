@@ -2,7 +2,6 @@ package com.example.homework2_14;
 
 import com.example.homework2_14.Exception.InvalidIndexException;
 import com.example.homework2_14.Exception.NullItemException;
-import com.example.homework2_14.Exception.StorageIsFullException;
 import com.example.homework2_14.Impl.IntegerListImpl;
 import org.junit.jupiter.api.Test;
 
@@ -15,7 +14,6 @@ public class IntegerListImplTest {
         m.add(1);
         assertTrue(m.contains(1));
     }
-
     @Test
     void addByIndex() {
         IntegerListImpl m = new IntegerListImpl(5);
@@ -58,16 +56,6 @@ public class IntegerListImplTest {
         assertThrows(NullItemException.class, () -> m.add(null));
     }
 
-    @Test
-    void testStorageIsFullException() {
-        IntegerListImpl m = new IntegerListImpl(5);
-        m.add(1);
-        m.add(2);
-        m.add(3);
-        m.add(4);
-        m.add(5);
-        assertThrows(StorageIsFullException.class, () -> m.add(6));
-    }
 
     @Test
     void testInvalidIndexException() {
